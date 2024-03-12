@@ -9,7 +9,7 @@ import requests
 import time ## 임의추가
 
 # Qt Designer로 생성한 gui 파일 로드
-form_class = uic.loadUiType(r'C:\Users\illbtm\OneDrive\출판\주식 자동 매매\sourcecode\Chapter 4\gui.ui')[0]
+form_class = uic.loadUiType(r'이곳에 ui file path를 추가해 주세요')[0]
 
 class MyWindow(QMainWindow, form_class):
     def __init__(self):
@@ -31,7 +31,7 @@ class MyWindow(QMainWindow, form_class):
         self.trade_timer.timeout.connect(self.trade_stocks)
         
         # 슬랙 웹훅 URL 설정
-        self.slack_webhook_url = "https://hooks.slack.com/services/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"  
+        self.slack_webhook_url = "이곳에 slack webhook을 추가해 주세요"  
         
         # 매수한 종목 추적을 위한 딕셔너리 추가
         self.bought_stocks = {}
