@@ -18,7 +18,7 @@ if st.sidebar.button('데이터 가져오기'):
     end_date = datetime.now()
     start_date = end_date - timedelta(days=15)
 
-    st.header('종목별 OHLC 차트와 매수목표가격') # 임의 추가
+    st.header('종목별 OHLC 차트와 매수목표가격')
     
     tabs = st.tabs([f"종목 {symbol}" for symbol in symbols])
     for tab, symbol in zip(tabs, symbols):
