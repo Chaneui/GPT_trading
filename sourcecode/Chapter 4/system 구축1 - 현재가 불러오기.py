@@ -6,9 +6,9 @@ from pykiwoom.kiwoom import Kiwoom
 import datetime
 
 class StockApp(QMainWindow):
-    def __init__(self): # ❶
+    def __init__(self): #
         super().__init__()
-        uic.loadUi('C:\\Users\\illbtm\\OneDrive\\출판\\주식 자동 매매\\sourcecode\\Chapter 4\\gui.ui', self)  # QtDesigner로 생성한 gui.ui 파일 로드. .ui 파일 저장 경로 입력 필요.
+        uic.loadUi('파일 경로 입력', self)  # QtDesigner로 생성한 gui.ui 파일 로드. .ui 파일 저장 경로 입력 필요.
 
         # Ui에서 요소 찾기
         self.textboard = self.findChild(QTextBrowser, 'textboard')
@@ -20,11 +20,11 @@ class StockApp(QMainWindow):
         self.kiwoom = Kiwoom()
         self.kiwoom.CommConnect(block=True)
 
-        # 타이머 설정 # ❷
+        # 타이머 설정 #
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update_stock_price)
 
-        # 버튼 이벤트 연결 # ❸
+        # 버튼 이벤트 연결 #
         self.button_start.clicked.connect(self.start_update)
         self.button_stop.clicked.connect(self.stop_update)
 
@@ -35,7 +35,7 @@ class StockApp(QMainWindow):
         self.timer.stop()  # 타이머 중지
         self.textboard.clear()  # QTextBrowser 내용 삭제
 
-    def update_stock_price(self): # ❹
+    def update_stock_price(self): #
         codes = self.code_list.text().split(',')  # 사용자 입력 종목 코드 분리
         for code in codes:
             if code.strip():  # 종목 코드가 비어있지 않은 경우
