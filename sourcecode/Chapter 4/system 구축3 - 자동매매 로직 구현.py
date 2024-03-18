@@ -29,8 +29,8 @@ class MyWindow(QMainWindow, form_class):
         self.trade_timer.timeout.connect(self.trade_stocks)
 
     def start_trading(self):
-        self.market_timer.start(1000 * 60)  # 1분마다 check_market_time 호출 ❶
-        self.trade_timer.start(1000)  # 1초마다 trade_stocks 호출 ❶
+        self.market_timer.start(1000 * 60)  # 1분마다 check_market_time 호출
+        self.trade_timer.start(1000)  # 1초마다 trade_stocks 호출
 
     def stop_trading(self):
         self.market_timer.stop()  # 타이머 중지
@@ -58,7 +58,7 @@ class MyWindow(QMainWindow, form_class):
                                                  종목코드=code.strip(),
                                                  output="주식기본정보",
                                                  next=0)['종목명'][0]
-                self.textboard.append(f"[{now}] [{code.strip()}] [{name}] [현재가: {current_price}]") # ❷
+                self.textboard.append(f"[{now}] [{code.strip()}] [{name}] [현재가: {current_price}]")
 
                 # 변동성 돌파 전략 계산 및 매수 조건 확인
                 yesterday_data = stock.get_market_ohlcv_by_date(datetime.datetime.now().strftime('%Y%m%d'), datetime.datetime.now().strftime('%Y%m%d'), code.strip())
